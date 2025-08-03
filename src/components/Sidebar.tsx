@@ -62,7 +62,8 @@ export const Sidebar = () => {
                 href={nav.path}
                 icon={nav.icon}
                 classNames={cc({
-                  'opacity-60 hover:opacity-100': pathname !== nav.path,
+                  'opacity-60 hover:opacity-100 transition-opacity':
+                    pathname !== nav.path,
                 })}
               >
                 {nav.title}
