@@ -3,21 +3,24 @@ import { bff } from '@/common/utils/bff';
 import { getAccessToken } from '@/common/utils/cookies';
 import { Profile } from '@/components/Profile';
 import { redirect } from 'next/navigation';
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from '@tanstack/react-query';
+import { getProfile } from '@/services/profile';
 
 export default async function ProfilePage() {
-  const accessToken = await getAccessToken();
+  const queryClient = new QueryClient();
 
-  if (!accessToken) {
-    redirect('/');
-  }
-
-  const response = await fetch(bff('/user/profile'), {
-    headers: {
-      [HEADERS.ACCESS_TOKEN]: accessToken,
-    },
+  await queryClient.prefetchQuery({
+    queryKey: ['profile'],
+    queryFn: getProfile,
   });
 
-  const { profile } = (await response.json()) as UserProfileInterface.Root;
-
-  return <Profile profile={profile} />;
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <Profile />
+    </HydrationBoundary>
+  );
 }

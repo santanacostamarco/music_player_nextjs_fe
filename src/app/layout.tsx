@@ -4,6 +4,7 @@ import './globals.css';
 import cc from 'classcat';
 import { Sidebar } from '@/components/Sidebar';
 import { getAccessToken } from '@/common/utils/cookies';
+import QueryClientProvider from '@/providers/QueryClientProvider';
 
 const dmSans = DM_Sans({
   variable: '--font-dm-sans',
@@ -52,7 +53,9 @@ export default async function RootLayout({
       <body className={cc(classNames)}>
         <div className="lg:flex">
           <Sidebar />
-          <main className="lg:h-screen lg:flex-1">{children}</main>
+          <QueryClientProvider>
+            <main className="lg:h-screen lg:flex-1">{children}</main>
+          </QueryClientProvider>
         </div>
       </body>
     </html>
