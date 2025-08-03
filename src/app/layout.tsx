@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { DM_Sans, DM_Mono, Rubik } from 'next/font/google';
 import './globals.css';
 import cc from 'classcat';
+import { Sidebar } from '@/components/Sidebar';
+import { getAccessToken } from '@/common/utils/cookies';
 
 const dmSans = DM_Sans({
   variable: '--font-dm-sans',
@@ -23,21 +25,36 @@ export const metadata: Metadata = {
   description: 'Desafio LuizaLabs',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const classNames = cc([
+  const accessToken = await getAccessToken();
+
+  const classNames = [
     dmSans.variable,
     dmMono.variable,
     rubik.variable,
     'antialiased',
-  ]);
+  ];
+
+  if (!accessToken) {
+    return (
+      <html lang="en">
+        <body className={cc(classNames)}>{children}</body>
+      </html>
+    );
+  }
 
   return (
     <html lang="en">
-      <body className={classNames}>{children}</body>
+      <body className={cc(classNames)}>
+        <div className="lg:flex">
+          <Sidebar />
+          <main className="lg:h-screen lg:flex-1">{children}</main>
+        </div>
+      </body>
     </html>
   );
 }
