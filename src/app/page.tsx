@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers';
 import { Link } from '@/common/components/navigation/Link';
+import { PageConstruction } from '@/components/PageConstruction';
 
 export default async function Home() {
   const cookieStore = await cookies();
@@ -22,11 +23,5 @@ export default async function Home() {
     );
   }
 
-  return (
-    <div>
-      <main className="flex h-screen flex-col items-center justify-center gap-2">
-        <h1>home</h1>
-      </main>
-    </div>
-  );
+  return <PageConstruction />;
 }
