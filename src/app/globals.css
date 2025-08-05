@@ -17,6 +17,7 @@
   --font-sans: var(--font-dm-sans);
   --font-mono: var(--font-dm-mono);
   --font-rubik: var(--font-rubik);
+  --font-rubik-thin: var(--font-rubik-thin);
 
   /** Colors */
   --color-background: var(--background);
@@ -48,4 +49,13 @@ h4,
 h5,
 h6 {
   font-family: var(--font-rubik);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: var(--text-2xl);
+}
+
+p {
+  font-family: var(--font-rubik-thin);
 }

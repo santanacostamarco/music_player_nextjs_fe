@@ -9,7 +9,7 @@ export const ProfileImage = ({ profile }: ProfileImageProps) => {
   });
   const imageUrl =
     profile.images.find((i) => i.url)?.url ||
-    `/api/profile/no-photo?${search.toString()}`;
+    `/api/no-photo?${search.toString()}`;
 
   return (
     <Image

@@ -20,6 +20,11 @@ const rubik = Rubik({
   subsets: ['latin'],
   weight: '500',
 });
+const rubikThin = Rubik({
+  variable: '--font-rubik-thin',
+  subsets: ['latin'],
+  weight: '400',
+});
 
 export const metadata: Metadata = {
   title: 'LuizaLabs Spotfy',
@@ -37,6 +42,7 @@ export default async function RootLayout({
     dmSans.variable,
     dmMono.variable,
     rubik.variable,
+    rubikThin.variable,
     'antialiased',
   ];
 

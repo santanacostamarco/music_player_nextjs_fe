@@ -1,8 +1,4 @@
-import { HEADERS } from '@/common/enum/headers';
-import { bff } from '@/common/utils/bff';
-import { getAccessToken } from '@/common/utils/cookies';
 import { Profile } from '@/components/Profile';
-import { redirect } from 'next/navigation';
 import {
   dehydrate,
   HydrationBoundary,
