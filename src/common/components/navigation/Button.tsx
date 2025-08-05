@@ -38,7 +38,13 @@ export const Button = ({
   return (
     <button
       {...buttonProps}
-      className={cc([...innerClassNames, 'flex', 'items-center', 'gap-3'])}
+      className={cc([
+        ...innerClassNames,
+        'flex',
+        'items-center',
+        'gap-3',
+        'cursor-pointer',
+      ])}
     >
       {icon && (
         <Image

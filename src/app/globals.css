@@ -10,6 +10,7 @@
   --color-black-default: #090707;
   --color-black-dark: #000000;
   --collor-primary-1: #57b660;
+  --color-gray-default: #303030;
 }
 
 @theme inline {
@@ -27,6 +28,7 @@
   --color-button-bg: var(--collor-primary-1);
   --color-button-fg: var(--color-black-light);
   --color-face-dark: var(--color-black-dark);
+  --color-gray-500: var(--color-gray-default);
 }
 
 @media (prefers-color-scheme: light) {

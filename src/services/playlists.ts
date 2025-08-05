@@ -9,3 +9,19 @@ export const getPlaylists = async () => {
 
   return playlists;
 };
+
+type CreatePlaylistBody = {
+  userId: string;
+  name: string;
+  description?: string;
+  public: boolean;
+};
+/**
+ * Creates a new playlist.
+ */
+export const createPlaylist = async (body: CreatePlaylistBody) => {
+  const response = await fetch('/api/playlists/new', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+};

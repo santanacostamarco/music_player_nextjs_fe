@@ -5,4 +5,5 @@ export enum QUERY_KEY {
   ARTIST_TOP_TRACKS = 'artist/top-tracks',
   PLAYLISTS = 'playlists',
   USER_PROFILE = 'user/prifile',
+  CREATE_PLAYLIST = 'playlists/new',
 }
