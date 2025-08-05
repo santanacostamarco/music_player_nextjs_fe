@@ -21,14 +21,17 @@ export const Button = ({
 
   if (variant === 'button') {
     innerClassNames.push(
+      'font-bold',
       'font-rubik',
       'bg-button-bg',
       'inline-block',
       'px-5',
-      'py-2',
+      'py-1',
       'rounded-full',
       'text-base',
-      'text-button-fg'
+      'text-button-fg',
+      'tracking-wide',
+      'h-6'
     );
   }
 

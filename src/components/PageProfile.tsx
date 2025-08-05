@@ -5,7 +5,7 @@ import { getProfile } from '@/services/profile';
 import { useQuery } from '@tanstack/react-query';
 import { ProfileImage } from './ProfileImage';
 
-export const Profile = () => {
+export const PageProfile = () => {
   const { data: profile } = useQuery({
     queryKey: ['profile'],
     queryFn: getProfile,

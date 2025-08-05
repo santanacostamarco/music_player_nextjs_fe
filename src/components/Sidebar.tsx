@@ -49,32 +49,35 @@ const navigationMap = new Map<string, NavType>([
 export const Sidebar = () => {
   const pathname = usePathname();
   return (
-    <aside className="bg-face-dark flex flex-col lg:h-screen lg:w-3xs">
-      <div className="flex-1 pt-3.5 pl-3.5">
-        <div className="mb-5">
-          <SpotfyLogo />
+    <>
+      <div className="lg:h-screen lg:w-3xs" />
+      <aside className="bg-face-dark flex flex-col lg:fixed lg:h-screen lg:w-3xs">
+        <div className="flex-1 pt-3.5 pl-3.5">
+          <div className="mb-5">
+            <SpotfyLogo />
+          </div>
+          <ol>
+            {Array.from(navigationMap).map(([key, nav]) => (
+              <li key={key} className="mb-3">
+                <Link
+                  variant="nav"
+                  href={nav.path}
+                  icon={nav.icon}
+                  classNames={cc({
+                    'opacity-60 hover:opacity-100 transition-opacity':
+                      pathname !== nav.path,
+                  })}
+                >
+                  {nav.title}
+                </Link>
+              </li>
+            ))}
+          </ol>
         </div>
-        <ol>
-          {Array.from(navigationMap).map(([key, nav]) => (
-            <li key={key} className="mb-3">
-              <Link
-                variant="nav"
-                href={nav.path}
-                icon={nav.icon}
-                classNames={cc({
-                  'opacity-60 hover:opacity-100 transition-opacity':
-                    pathname !== nav.path,
-                })}
-              >
-                {nav.title}
-              </Link>
-            </li>
-          ))}
-        </ol>
-      </div>
-      <div>
-        <p>Instalar PWA</p>
-      </div>
-    </aside>
+        <div>
+          <p>Instalar PWA</p>
+        </div>
+      </aside>
+    </>
   );
 };

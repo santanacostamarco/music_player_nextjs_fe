@@ -2,11 +2,12 @@
 
 import { getArtists } from '@/services/artists';
 import { useQuery } from '@tanstack/react-query';
-import { Artist } from '@/components/Artist';
+import { ArtistLink } from '@/components/ArtistLink';
+import { QUERY_KEY } from '@/common/enum/query-key';
 
-export const Artists = () => {
+export const PageArtists = () => {
   const { data: artists } = useQuery({
-    queryKey: ['artists'],
+    queryKey: [QUERY_KEY.ARTISTS],
     queryFn: getArtists,
   });
   return (
@@ -20,7 +21,7 @@ export const Artists = () => {
           {artists &&
             artists.map((artist) => (
               <li key={artist.id}>
-                <Artist data={artist} />
+                <ArtistLink data={artist} />
               </li>
             ))}
         </ul>
