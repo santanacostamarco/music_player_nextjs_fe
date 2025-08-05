@@ -12,7 +12,7 @@ $ npm install
 
 ### 2. Configure as variáveis de ambiente
 
-Para rodar a aplicação em modo desenvolvimento, é necessário adicionar algumas variáveis de ambinte.
+Para rodar a aplicação em modo desenvolvimento, é necessário adicionar algumas variáveis de ambiente.
 
 Crie um arquivo `.env` na raiz deste projeto.
 
